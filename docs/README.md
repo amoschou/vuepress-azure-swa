@@ -1,3 +1,20 @@
-# VuePress for Azure SWA with Auth
+---
+layout: LayoutElevated
+home: true
+actions:
+  - text: Enter site
+    link: /home/
+    type: primary
+  - text: Log out
+    link: /auth/logout/logout.html
+    type: secondary
+navbar: false
+editLink: false
+lastUpdated: false
+contributors: false
+sidebar: false
+---
 
-This is a VuePress site published to Azure Static Web Apps with authentication and authorisation.
+::: tip Logged in
+<p><Auth /></p>
+:::

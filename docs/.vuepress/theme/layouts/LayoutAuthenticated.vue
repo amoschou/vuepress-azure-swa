@@ -7,6 +7,7 @@
 <script>
     import Layout from '@vuepress/theme-default/lib/client/layouts/Layout.vue';
     import axios from 'axios';
+    
     export default {
         data () {
             return {
