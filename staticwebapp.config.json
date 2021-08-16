@@ -42,7 +42,7 @@
         },
         {
             "route": "/*",
-            "allowedRoles": ["staff"]
+            "allowedRoles": ["admin", "staff"]
         }
     ],
     "responseOverrides": {

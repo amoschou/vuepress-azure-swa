@@ -73,7 +73,7 @@ The role is a non-empty string of letters, numbers or underscores. If the role i
 ]
 ```
 
-In this example, there are five roles supported by the app: `admin`, `staff`, `member`, `authenticated` and `anonymous`. `authenticated` and `anonymous` are mandatory roles as required by Azure SWA authentication. The other three are related to the function of the app.
+In this example, there are five roles supported by the app: `admin`, `staff`, `member`, `authenticated` and `anonymous`. `authenticated` and `anonymous` are mandatory roles as required by Azure SWA authentication. The other three are related to the function of the app. Role management for users is outlined at [Authentication and authorization for Azure Static Web Apps](https://docs.microsoft.com/en-us/azure/static-web-apps/authentication-authorization).
 
 The most priviliged role is `admin` and `admin` users can visit all routes. `staff` users can visit all routes except `/admin/`, `/auth/login/` and its subroutes `/auth/login/*` (they are already logged in). `member` users can only visit `/home/` and `/auth/logout/` (lets them log out). `anonymous` users can visit only `/auth/login/`. If users are logged in but are not at least members, then they are just `authenticated` and `authenticated` users will be redirected to `/auth/forbidden/` when attempting to access any other route (this is useful behaviour as Azure SWA seems to allow any user of the identity provider to log in without restriction).
 
