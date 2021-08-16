@@ -1,49 +1,16 @@
 {
     "routes": [
-        {
-            "route": "/",
-            "allowedRoles": ["anonymous"]
-        },
-        {
-            "route": "/.auth/*",
-            "allowedRoles": ["anonymous"]
-        },
-        {
-            "route": "/assets/css/*.css",
-            "allowedRoles": ["anonymous"]
-        },
-        {
-            "route": "/assets/js/*.js",
-            "allowedRoles": ["anonymous"]
-        },
-        {
-            "route": "/auth/login/",
-            "allowedRoles": ["anonymous"]
-        },
-        {
-            "route": "/auth/login/*",
-            "allowedRoles": ["anonymous"]
-        },
-        {
-            "route": "/auth/logout/",
-            "allowedRoles": ["authenticated"]
-        },
-        {
-            "route": "/auth/logout/*",
-            "allowedRoles": ["authenticated"]
-        },
-        {
-            "route": "/admin/",
-            "allowedRoles": ["admin"]
-        },
-        {
-            "route": "/home/",
-            "allowedRoles": ["admin", "staff", "member"]
-        },
-        {
-            "route": "/*",
-            "allowedRoles": ["admin", "staff"]
-        }
+        { "route": "/", "allowedRoles": ["anonymous"] },
+        { "route": "/.auth/*", "allowedRoles": ["anonymous"] },
+        { "route": "/assets/css/*.css", "allowedRoles": ["anonymous"] },
+        { "route": "/assets/js/*.js", "allowedRoles": ["anonymous"] },
+        { "route": "/auth/login/", "allowedRoles": ["anonymous"] },
+        { "route": "/auth/login/*", "allowedRoles": ["anonymous"] },
+        { "route": "/auth/logout/", "allowedRoles": ["authenticated"] },
+        { "route": "/auth/logout/*", "allowedRoles": ["authenticated"] },
+        { "route": "/home/", "allowedRoles": ["admin", "staff", "member"] },
+        { "route": "/admin/", "allowedRoles": ["admin"] },
+        { "route": "/*", "allowedRoles": ["admin", "staff"] }
     ],
     "responseOverrides": {
         "401": {

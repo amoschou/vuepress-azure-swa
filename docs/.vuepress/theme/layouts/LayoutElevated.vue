@@ -7,6 +7,7 @@
 <script>
     import Layout from '@vuepress/theme-default/lib/client/layouts/Layout.vue';
     import axios from 'axios';
+
     export default {
         data () {
             return {
@@ -38,7 +39,7 @@
             userIsInvited() {
                 return (
                     this.userRoles.includes('admin')
-                    || this.userRoles.includes('employee')
+                    || this.userRoles.includes('staff')
                 );
             }
         },
@@ -51,9 +52,8 @@
             
             this.$data.user = res.data.clientPrincipal;
             this.$data.userRoles = userRoles;
-            // If the user has a higher role than 'authenticated', then auth will never complete.
-            // If the user is not "elevated", then auth will never complete.
-            if (userRoles.includes('staff') || userRoles.includes('owner')) {
+
+            if (userRoles.includes('admin') || userRoles.includes('staff')) {
                 this.$data.authComplete = true;
             }
         }
