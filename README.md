@@ -4,6 +4,8 @@ A template for a VuePress site published to Azure Static Web Apps with authentic
 
 ## Files
 
+### `/docs/.vuepress/auth/rules.json`
+
 `rules.json` is an array of objects, where each object is of the form:
 
 ```json
