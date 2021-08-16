@@ -33,6 +33,14 @@
             "allowedRoles": ["authenticated"]
         },
         {
+            "route": "/admin/",
+            "allowedRoles": ["admin"]
+        },
+        {
+            "route": "/home/",
+            "allowedRoles": ["admin", "staff", "member"]
+        },
+        {
             "route": "/*",
             "allowedRoles": ["staff"]
         }

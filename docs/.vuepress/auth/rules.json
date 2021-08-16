@@ -8,6 +8,7 @@
         "role": "staff",
         "elevated": true,
         "exceptions": [
+            "/admin/",
             "/auth/logout/",
             "/auth/login/",
             "/auth/login/aad.html",
@@ -16,7 +17,7 @@
         ],
         "redirect": "/"
     }, {
-        "role": "client",
+        "role": "member",
         "elevated": false,
         "exceptions": [
             "/home/",

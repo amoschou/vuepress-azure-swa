@@ -42,11 +42,11 @@ The role is a non-empty string of letters, numbers or underscores. If the role i
         "role": "staff",
         "elevated": true,
         "exceptions": [
+            "/admin/",
             "/auth/login/",
             "/auth/login/aad/",
             "/auth/login/twitter/",
-            "/auth/login/github/",
-            "/admin/"
+            "/auth/login/github/"
         ],
         "redirect": "/"
     }, {
