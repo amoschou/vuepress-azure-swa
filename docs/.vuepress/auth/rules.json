@@ -1,0 +1,46 @@
+[
+    {
+        "role": "admin",
+        "elevated": true,
+        "exceptions": [],
+        "redirect": null
+    }, {
+        "role": "staff",
+        "elevated": true,
+        "exceptions": [
+            "/auth/logout/",
+            "/auth/login/",
+            "/auth/login/aad.html",
+            "/auth/login/twitter.html",
+            "/auth/login/github.html"
+        ],
+        "redirect": "/"
+    }, {
+        "role": "client",
+        "elevated": false,
+        "exceptions": [
+            "/home/",
+            "/auth/logout/",
+            "/auth/logout/logout.html"
+        ],
+        "redirect": "/home/"
+    }, {
+        "role": "authenticated",
+        "elevated": false,
+        "exceptions": [
+            "/auth/logout/",
+            "/auth/logout/logout.html"
+        ],
+        "redirect": "/auth/logout/"
+    }, {
+        "role": "anonymous",
+        "elevated": false,
+        "exceptions": [
+            "/auth/login/",
+            "/auth/login/aad.html",
+            "/auth/login/twitter.html",
+            "/auth/login/github.html"
+        ],
+        "redirect": "/auth/login/"
+    }
+]

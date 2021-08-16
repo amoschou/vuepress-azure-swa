@@ -1,0 +1,26 @@
+{
+    "name": "vuepress-azure-swa",
+    "version": "0.0.1",
+    "description": "A template for a VuePress site published to Azure Static Web Apps with authentication and authorisation.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/amoschou/vuepress-azure-swa.git"
+    },
+    "author": "Andrew Moschou",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/amoschou/vuepress-azure-swa/issues"
+    },
+    "homepage": "https://github.com/amoschou/vuepress-azure-swa#readme",
+    "devDependencies": {
+        "axios": "^0.21.1",
+        "vue-router": "^4.0.11",
+        "vuepress": "^2.0.0-beta.24"
+    }
+  }

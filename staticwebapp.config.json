@@ -1,0 +1,46 @@
+{
+    "routes": [
+        {
+            "route": "/",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/.auth/*",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/assets/css/*.css",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/assets/js/*.js",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/auth/login/",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/auth/login/*",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/auth/logout/",
+            "allowedRoles": ["authenticated"]
+        },
+        {
+            "route": "/auth/logout/*",
+            "allowedRoles": ["authenticated"]
+        },
+        {
+            "route": "/*",
+            "allowedRoles": ["staff"]
+        }
+    ],
+    "responseOverrides": {
+        "401": {
+          "redirect": "/.auth/login/aad",
+          "statusCode": 302
+        }
+    }
+}
