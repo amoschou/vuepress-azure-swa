@@ -7,6 +7,7 @@ A template for a VuePress site published to Azure Static Web Apps with authentic
 1. Follow the process outlined at:
    * [Getting started](https://v2.vuepress.vuejs.org/guide/getting-started.html)
    * [Tutorial: Publish a VuePress site to Azure Static Web Apps](https://docs.microsoft.com/en-us/azure/static-web-apps/publish-vuepress)
+   
    You may also need to set `app_build_command: "npm run docs:build"` in the `Repository/Build Configurations` section of the `yaml` workflow file.
 
 ## Files
