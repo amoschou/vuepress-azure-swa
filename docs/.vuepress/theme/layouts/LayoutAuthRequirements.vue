@@ -16,27 +16,6 @@
                 authComplete: false
             }
         },
-        computed: {
-            userIdentityProvider() {
-                if (this.user?.identityProvider === 'aad') {
-                    if (this.user?.userDetails.endsWith('@example.com')) {
-                        return 'Example domain';
-                    }
-                    
-                    return 'Azure AD';
-                }
-
-                if (this.user?.identityProvider === 'twitter') {
-                    return 'Twitter';
-                }
-                
-                if (this.user?.identityProvider === 'github') {
-                    return 'GitHub';
-                }
-                
-                return null;
-            }
-        },
         components: {
             Layout
         },
@@ -45,14 +24,13 @@
             const clientPrincipal = res.data.clientPrincipal;
             const userRoles = (clientPrincipal === null) ? ['anonymous'] : clientPrincipal.userRoles;
             const authRequirements = this.$page.frontmatter?.authRequirements;
-            var authCompleteValue = false;
             const requireAny = authRequirements?.any ?? [];
             const requireNone = authRequirements?.none ?? [];
 
+            var authCompleteValue = false;
             if (requireAny.filter(e => userRoles.includes(e)).length > 0) {
                 authCompleteValue = true;
             }
-
             if (requireNone.filter(e => userRoles.includes(e)).length > 0) {
                 authCompleteValue = false;
             }
