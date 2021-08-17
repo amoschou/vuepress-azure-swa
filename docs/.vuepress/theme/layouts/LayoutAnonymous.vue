@@ -46,14 +46,11 @@
             this.$data.user = res.data.clientPrincipal;
             this.$data.userRoles = (res.data.clientPrincipal === null) ? ['anonymous'] : res.data.clientPrincipal.userRoles;
 
-            var authComplete = authResolve.default;
-
             if (this.$page.frontmatter.authResolve.exceptions.filter(e => this.$data.userRoles.includes(e)).length > 0) {
-                // Some exception exists.
-                authComplete = !authComplete;
+                this.$data.authComplete = !this.$page.frontmatter.authResolve.default;
+            } else {
+                this.$data.authComplete = this.$page.frontmatter.authResolve.default;
             }
-
-            this.$data.authComplete = authComplete;
         }
     };
 </script>
