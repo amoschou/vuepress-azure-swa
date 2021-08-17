@@ -43,16 +43,17 @@
         async beforeMount() {
             let res = await axios.get('/.auth/me');
 
-            console.log(this.$page);
-            console.log(this.$page.frontmatter);
-
             this.$data.user = res.data.clientPrincipal;
             this.$data.userRoles = (res.data.clientPrincipal === null) ? ['anonymous'] : res.data.clientPrincipal.userRoles;
 
-            // Only complete the auth if the user has no higher authority (i.e. if the user is truly anonymous and not authenticated)
-            if (res.data.clientPrincipal === null) {
-                this.$data.authComplete = true;
+            var authComplete = authResolve.default;
+
+            if (this.$page.frontmatter.authResolve.exceptions.filter(e => this.$data.userRoles.includes(e)).length > 0) {
+                // Some exception exists.
+                authComplete = !authComplete;
             }
+
+            this.$data.authComplete = authComplete;
         }
     };
 </script>

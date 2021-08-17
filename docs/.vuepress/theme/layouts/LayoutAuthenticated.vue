@@ -43,8 +43,7 @@
         async beforeMount() {
             let res = await axios.get('/.auth/me');
 
-            console.log(this.$page);
-            console.log(this.$page.frontmatter);
+            console.log(this.$page.frontmatter.completeIf);
 
             const userRoles = (res.data.clientPrincipal === null) ? ['anonymous'] : res.data.clientPrincipal.userRoles;
             
