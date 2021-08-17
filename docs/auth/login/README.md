@@ -1,6 +1,5 @@
 ---
 layout: LayoutAnonymous
-home: true
 actions:
   - text: Log in with Azure AD
     link: /auth/login/aad.html
