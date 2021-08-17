@@ -47,11 +47,16 @@
             const authResolve = this.$page.frontmatter.authResolve;
             var authCompleteValue = false;
 
+            console.log(userRoles);
+            console.log(authResolve);
+
             if (authResolve.any.filter(e => userRoles.includes(e)).length > 0) {
+                console.log('ANY true');
                 authCompleteValue = true;
             }
 
             if (authResolve.none.filter(e => userRoles.includes(e)).length > 0) {
+                console.log('NONE true');
                 authCompleteValue = false;
             }
 
