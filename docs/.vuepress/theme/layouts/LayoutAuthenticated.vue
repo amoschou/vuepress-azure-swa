@@ -35,12 +35,6 @@
                 }
                 
                 return null;
-            },
-            userIsInvited() {
-                return (
-                    this.userRoles.includes('admin')
-                    || this.userRoles.includes('employee')
-                );
             }
         },
         components: {
@@ -48,9 +42,10 @@
         },
         async beforeMount() {
             let res = await axios.get('/.auth/me');
-            if (res.data.clientPrincipal === null) {
-                // window.location.replace('/signin/');
-            }
+
+            console.log(this.$page);
+            console.log(this.$page.frontmatter);
+
             const userRoles = (res.data.clientPrincipal === null) ? ['anonymous'] : res.data.clientPrincipal.userRoles;
             
             this.$data.user = res.data.clientPrincipal;

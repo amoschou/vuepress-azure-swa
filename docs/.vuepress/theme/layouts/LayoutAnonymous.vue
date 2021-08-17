@@ -1,15 +1,6 @@
 <template>
     <template v-if="authComplete">
-        <Layout>
-            <template #page-top>
-                <div>A<pre>{{ $frontmatter }}</pre>A</div>
-                <div>B<pre>{{ frontmatter }}</pre>B</div>
-                <div>C<pre>{{ $page }}</pre>C</div>
-                <div>D<pre>{{ page }}</pre>D</div>
-                <div>E<pre>{{ $site }}</pre>E</div>
-                <div>F<pre>{{ site }}</pre>F</div>
-            </template>
-        </Layout>
+        <Layout></Layout>
     </template>
 </template>
 
@@ -28,12 +19,13 @@
         computed: {
             userIdentityProvider() {
                 if (this.user?.identityProvider === 'aad') {
-                    if (this.user?.userDetails.endsWith('@example')) {
+                    if (this.user?.userDetails.endsWith('@example.com')) {
                         return 'Example domain';
                     }
                     
                     return 'Azure AD';
                 }
+
                 if (this.user?.identityProvider === 'twitter') {
                     return 'Twitter';
                 }
@@ -43,12 +35,6 @@
                 }
                 
                 return null;
-            },
-            userIsInvited() {
-                return (
-                    this.userRoles.includes('admin')
-                    || this.userRoles.includes('employee')
-                );
             }
         },
         components: {
@@ -56,6 +42,9 @@
         },
         async beforeMount() {
             let res = await axios.get('/.auth/me');
+
+            console.log(this.$page);
+            console.log(this.$page.frontmatter);
 
             this.$data.user = res.data.clientPrincipal;
             this.$data.userRoles = (res.data.clientPrincipal === null) ? ['anonymous'] : res.data.clientPrincipal.userRoles;
