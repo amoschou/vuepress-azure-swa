@@ -1,5 +1,5 @@
 ---
-layout: LayoutAnonymous
+layout: LayoutAuthRequirements
 home: true
 navbar: false
 editLink: false

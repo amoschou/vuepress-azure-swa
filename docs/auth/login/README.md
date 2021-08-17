@@ -1,5 +1,5 @@
 ---
-layout: LayoutAnonymous
+layout: LayoutAuthRequirements
 home: true
 actions:
   - text: Log in with Azure AD

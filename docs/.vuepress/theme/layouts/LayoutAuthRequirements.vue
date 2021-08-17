@@ -44,7 +44,7 @@
             let res = await axios.get('/.auth/me');
             const clientPrincipal = res.data.clientPrincipal;
             const userRoles = (clientPrincipal === null) ? ['anonymous'] : clientPrincipal.userRoles;
-            const authRequirements = this.$page.frontmatter.authRequirements;
+            const authRequirements = this.$page.frontmatter?.authRequirements;
             var authCompleteValue = false;
             const requireAny = authRequirements?.any ?? [];
             const requireNone = authRequirements?.none ?? [];
