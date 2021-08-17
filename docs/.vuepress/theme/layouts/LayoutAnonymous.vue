@@ -1,7 +1,8 @@
 <template>
     <template v-if="authComplete">
         <Layout>
-            <template #page-top><pre>{{ $frontmatter }}</pre></template>
+            <template #page-top>A<pre>{{ $frontmatter }}</pre>A</template>
+            <template #page-top>B<pre>{{ frontmatter }}</pre>B</template>
         </Layout>
     </template>
 </template>
