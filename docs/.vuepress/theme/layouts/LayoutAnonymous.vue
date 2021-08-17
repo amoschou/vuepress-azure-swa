@@ -4,6 +4,10 @@
             <template #page-top>
                 <div>A<pre>{{ $frontmatter }}</pre>A</div>
                 <div>B<pre>{{ frontmatter }}</pre>B</div>
+                <div>C<pre>{{ $page }}</pre>C</div>
+                <div>D<pre>{{ page }}</pre>D</div>
+                <div>E<pre>{{ $site }}</pre>E</div>
+                <div>F<pre>{{ site }}</pre>F</div>
             </template>
         </Layout>
     </template>
