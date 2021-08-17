@@ -1,5 +1,5 @@
 ---
-layout: LayoutAuthenticated
+layout: LayoutAnonymous
 home: true
 actions:
   - text: Log out
@@ -10,6 +10,8 @@ editLink: false
 lastUpdated: false
 contributors: false
 sidebar: false
+authRequirements:
+  any: ['authenticated']
 ---
 
 ::: danger Forbidden: <Auth />
