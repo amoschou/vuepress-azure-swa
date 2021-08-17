@@ -17,6 +17,6 @@ lastUpdated: false
 contributors: false
 sidebar: false
 authResolve:
-  default: false
-  exceptions: ['anonymous']
+  allow: ['anonymous']
+  forbid: ['authenticated']
 ---

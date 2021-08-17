@@ -46,11 +46,17 @@
             this.$data.user = res.data.clientPrincipal;
             this.$data.userRoles = (res.data.clientPrincipal === null) ? ['anonymous'] : res.data.clientPrincipal.userRoles;
 
-            if (this.$page.frontmatter.authResolve.exceptions.filter(e => this.$data.userRoles.includes(e)).length > 0) {
-                this.$data.authComplete = !this.$page.frontmatter.authResolve.default;
-            } else {
-                this.$data.authComplete = this.$page.frontmatter.authResolve.default;
+            var authCompleteValue = false;
+
+            if (this.$page.frontmatter.authResolve.allow.filter(e => this.$data.userRoles.includes(e)).length > 0) {
+                authCompleteValue = true;
             }
+
+            if (this.$page.frontmatter.authResolve.forbid.filter(e => this.$data.userRoles.includes(e)).length > 0) {
+                authCompleteValue = false;
+            }
+
+            this.$data.authComplete = authCompleteValue;
         }
     };
 </script>
