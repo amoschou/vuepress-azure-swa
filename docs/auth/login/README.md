@@ -16,7 +16,7 @@ editLink: false
 lastUpdated: false
 contributors: false
 sidebar: false
-authResolve:
-  allow: ['anonymous']
-  forbid: ['authenticated']
+authRequirements:
+  any: ['anonymous']
+  none: ['authenticated']
 ---

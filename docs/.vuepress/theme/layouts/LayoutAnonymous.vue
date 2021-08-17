@@ -42,20 +42,21 @@
         },
         async beforeMount() {
             let res = await axios.get('/.auth/me');
-
-            this.$data.user = res.data.clientPrincipal;
-            this.$data.userRoles = (res.data.clientPrincipal === null) ? ['anonymous'] : res.data.clientPrincipal.userRoles;
-
+            const clientPrincipal = res.data.clientPrincipal;
+            const userRoles = (clientPrincipal === null) ? ['anonymous'] : clientPrincipal.userRoles;
+            const authResolve = this.$page.frontmatter.authResolve;
             var authCompleteValue = false;
 
-            if (this.$page.frontmatter.authResolve.allow.filter(e => this.$data.userRoles.includes(e)).length > 0) {
+            if (authResolve.any.filter(e => userRoles.includes(e)).length > 0) {
                 authCompleteValue = true;
             }
 
-            if (this.$page.frontmatter.authResolve.forbid.filter(e => this.$data.userRoles.includes(e)).length > 0) {
+            if (authResolve.none.filter(e => userRoles.includes(e)).length > 0) {
                 authCompleteValue = false;
             }
 
+            this.$data.user = clientPrincipal;
+            this.$data.userRoles = userRoles;
             this.$data.authComplete = authCompleteValue;
         }
     };
