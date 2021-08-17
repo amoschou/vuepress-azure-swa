@@ -6,6 +6,9 @@ editLink: false
 lastUpdated: false
 contributors: false
 sidebar: false
+authRequirements:
+  any: ['anonymous']
+  none: ['authenticated']
 ---
 
 <script>

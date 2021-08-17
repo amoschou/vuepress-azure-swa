@@ -46,17 +46,14 @@
             const userRoles = (clientPrincipal === null) ? ['anonymous'] : clientPrincipal.userRoles;
             const authRequirements = this.$page.frontmatter.authRequirements;
             var authCompleteValue = false;
+            const requireAny = authRequirements?.any ?? [];
+            const requireNone = authRequirements?.none ?? [];
 
-            console.log(userRoles);
-            console.log(authRequirements);
-
-            if (authRequirements.any.filter(e => userRoles.includes(e)).length > 0) {
-                console.log('ANY true');
+            if (requireAny.filter(e => userRoles.includes(e)).length > 0) {
                 authCompleteValue = true;
             }
 
-            if (authRequirements.none.filter(e => userRoles.includes(e)).length > 0) {
-                console.log('NONE true');
+            if (requireNone.filter(e => userRoles.includes(e)).length > 0) {
                 authCompleteValue = false;
             }
 

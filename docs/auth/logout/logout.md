@@ -6,6 +6,8 @@ editLink: false
 lastUpdated: false
 contributors: false
 sidebar: false
+authRequirements:
+  any: ['authenticated']
 ---
 
 <script>
