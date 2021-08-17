@@ -44,18 +44,18 @@
             let res = await axios.get('/.auth/me');
             const clientPrincipal = res.data.clientPrincipal;
             const userRoles = (clientPrincipal === null) ? ['anonymous'] : clientPrincipal.userRoles;
-            const authResolve = this.$page.frontmatter.authResolve;
+            const authRequirements = this.$page.frontmatter.authRequirements;
             var authCompleteValue = false;
 
             console.log(userRoles);
-            console.log(authResolve);
+            console.log(authRequirements);
 
-            if (authResolve.any.filter(e => userRoles.includes(e)).length > 0) {
+            if (authRequirements.any.filter(e => userRoles.includes(e)).length > 0) {
                 console.log('ANY true');
                 authCompleteValue = true;
             }
 
-            if (authResolve.none.filter(e => userRoles.includes(e)).length > 0) {
+            if (authRequirements.none.filter(e => userRoles.includes(e)).length > 0) {
                 console.log('NONE true');
                 authCompleteValue = false;
             }
