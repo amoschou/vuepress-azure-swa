@@ -8,7 +8,17 @@ Follow the process outlined at:
   * [Getting started](https://v2.vuepress.vuejs.org/guide/getting-started.html)
   * [Tutorial: Publish a VuePress site to Azure Static Web Apps](https://docs.microsoft.com/en-us/azure/static-web-apps/publish-vuepress)
 
-You may also need to set `app_build_command: "npm run docs:build"` in the `Repository/Build Configurations` section of the `yaml` workflow file.
+You may also need to set `app_build_command: "npm run docs:build"` in the `Repository/Build Configurations` section of the `YAML` workflow file. This template has:
+
+```yaml
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/" # App source code path
+          api_location: "" # Api source code path - optional
+          output_location: "/docs/.vuepress/dist" # Built app content directory - optional
+          app_build_command: "npm run docs:build"
+          ###### End of Repository/Build Configurations ######
+```
 
 ## Files
 
