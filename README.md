@@ -22,6 +22,8 @@ You may also need to set `app_build_command: "npm run docs:build"` in the `Repos
 
 ## App structure
 
+### Routes
+
 This app has the following routes and permissions:
 
 | Routes | Information |
@@ -37,6 +39,10 @@ This app has the following routes and permissions:
 | `/auth/login/github.html` | Users who have `anonymous` and not `authenticated` can visit this route. It redirects to `/.auth/login/github` for Azure authentication using GitHub. |
 | `/auth/logout/` | Users who are `authenticated` but do not have any of `admin`, `staff` or `member` roles can not visit the site content and will be invited to log out by being redirected to this page. |
 | `/auth/logout/logout.html` | Any `authenticated` user can visit this page, it will redirect them to `/.auth/logout` and log them out. |
+
+### Components
+
+The `<Auth>` component displays the name and identity provider for the logged in user.
 
 ## Files
 
@@ -118,5 +124,29 @@ The most priviliged role is `admin` and `admin` users can visit all routes. `sta
 
 For additional protection, `staticwebapp.config.json` can be configured according to [Securing routes with roles](https://docs.microsoft.com/en-us/azure/static-web-apps/configuration#securing-routes-with-roles).
 
+### `clientWebEnhance.ts`
+
+The navigation guard is defined in this file. It gets the roles of the logged in user from `/.auth/me` and compares them with `rules.json` and the intended destination.
+
+```ts
+router.beforeEach(async (to, from) => {
+    const userRoles = await getUserRoles();
+
+    return navigationGuard(userRoles, to.path);
+});
+```
+
+### `LayoutAuth.vue`
+
+This file is a custom layout. Select this layout from the frontmatter of a page to do auth checks before the page is rendered. The content of the page will not be rendered unless the user has appropriate authorisation. In the frontmatter, write something like:
+
+```yaml
+layout: LayoutAuth
+authRequirements:
+  any: ['admin', 'staff']
+  none: ['member']
+```
+
+This example shows that the page will be rendered by the layout theme for `admin` and `staff` users but not `member` users.
 
 
