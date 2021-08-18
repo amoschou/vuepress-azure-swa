@@ -22,7 +22,21 @@ You may also need to set `app_build_command: "npm run docs:build"` in the `Repos
 
 ## App structure
 
+This app has the following routes:
 
+| Routes | Information |
+| ------ | ----------- |
+| `/` | Accessibly only by `admin`, `staff` or `member` users. |
+| `/home/` | Accessible only by `admin`, `staff` or `member` users. |
+| `/admin/` | Accessible only by `admin` users. |
+| `/staff/` | Accessibly only by `admin` or `staff` users. |
+| `/member/` | Accessibly only by `admin` or `member` users. |
+| `/auth/login/` | Users who have `anonymous` and not `authenticated` roles can visit this route. It has links to the login pages for different authorisation providers. |
+| `/auth/login/aad.html` | Users who have `anonymous` and not `authenticated` can visit this route. It redirects to `/.auth/login/aad` for Azure authentication using Azure AD. |
+| `/auth/login/twitter.html` | Users who have `anonymous` and not `authenticated` can visit this route. It redirects to `/.auth/login/aad` for Azure authentication using Twitter. |
+| `/auth/login/github.html` | Users who have `anonymous` and not `authenticated` can visit this route. It redirects to `/.auth/login/github` for Azure authentication using GitHub. |
+| `/auth/logout/` | Users who are `authenticated` but do not have any of `admin`, `staff` or `member` roles can not visit the site content and will be invited to log out by being redirected to this page. |
+| `/auth/logout/logout.html` | Any `authenticated` user can visit this page, it will redirect them to `/.auth/logout` and log them out. |
 
 ## Files
 
@@ -48,36 +62,48 @@ The role is a non-empty string of letters, numbers or underscores. If the role i
 ```json
 [
     {
-        "role": "admin",        "elevated": true,
-        "exceptions": [],       "redirect": null
+        "role": "admin",
+        "elevated": true,
+        "exceptions": [],
+        "redirect": null
     }, {
         "role": "staff",
         "elevated": true,
         "exceptions": [
-            "/admin/", "/member/", "/auth/logout/", "/auth/login/",
-            "/auth/login/aad.html", "/auth/login/twitter.html", "/auth/login/github.html"
+            "/admin/",
+            "/member/",
+            "/auth/logout/",
+            "/auth/login/",
+            "/auth/login/aad.html",
+            "/auth/login/twitter.html",
+            "/auth/login/github.html"
         ],
         "redirect": "/home/"
     }, {
         "role": "member",
         "elevated": false,
         "exceptions": [
-            "/home/", "/member/", "/auth/logout/logout.html"
+            "/home/",
+            "/member/",
+            "/auth/logout/logout.html"
         ],
         "redirect": "/home/"
     }, {
         "role": "authenticated",
         "elevated": false,
         "exceptions": [
-            "/auth/logout/", "/auth/logout/logout.html"
+            "/auth/logout/",
+            "/auth/logout/logout.html"
         ],
         "redirect": "/auth/logout/"
     }, {
         "role": "anonymous",
         "elevated": false,
         "exceptions": [
-            "/auth/login/", "/auth/login/aad.html",
-            "/auth/login/twitter.html", "/auth/login/github.html"
+            "/auth/login/",
+            "/auth/login/aad.html",
+            "/auth/login/twitter.html",
+            "/auth/login/github.html"
         ],
         "redirect": "/auth/login/"
     }
