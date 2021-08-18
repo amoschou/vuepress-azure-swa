@@ -22,7 +22,7 @@ You may also need to set `app_build_command: "npm run docs:build"` in the `Repos
 
 ## App structure
 
-This app has the following routes:
+This app has the following routes and permissions:
 
 | Routes | Information |
 | ------ | ----------- |
