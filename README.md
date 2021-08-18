@@ -44,39 +44,36 @@ The role is a non-empty string of letters, numbers or underscores. If the role i
 ```json
 [
     {
-        "role": "admin",
-        "elevated": true,
-        "exceptions": [],
-        "redirect": null
+        "role": "admin",        "elevated": true,
+        "exceptions": [],       "redirect": null
     }, {
         "role": "staff",
         "elevated": true,
         "exceptions": [
-            "/admin/",
-            "/auth/login/",
-            "/auth/login/aad/",
-            "/auth/login/twitter/",
-            "/auth/login/github/"
+            "/admin/", "/member/", "/auth/logout/", "/auth/login/",
+            "/auth/login/aad.html", "/auth/login/twitter.html", "/auth/login/github.html"
         ],
-        "redirect": "/"
+        "redirect": "/home/"
     }, {
         "role": "member",
         "elevated": false,
-        "exceptions": ["/home/", "/auth/logout/"],
+        "exceptions": [
+            "/home/", "/member/", "/auth/logout/logout.html"
+        ],
         "redirect": "/home/"
     }, {
         "role": "authenticated",
         "elevated": false,
-        "exceptions": ["/auth/forbidden", "/auth/logout/"],
-        "redirect": "/auth/forbidden/"
+        "exceptions": [
+            "/auth/logout/", "/auth/logout/logout.html"
+        ],
+        "redirect": "/auth/logout/"
     }, {
         "role": "anonymous",
         "elevated": false,
         "exceptions": [
-            "/auth/login/",
-            "/auth/login/aad/",
-            "/auth/login/twitter/",
-            "/auth/login/github/"
+            "/auth/login/", "/auth/login/aad.html",
+            "/auth/login/twitter.html", "/auth/login/github.html"
         ],
         "redirect": "/auth/login/"
     }
@@ -85,7 +82,7 @@ The role is a non-empty string of letters, numbers or underscores. If the role i
 
 In this example, there are five roles supported by the app: `admin`, `staff`, `member`, `authenticated` and `anonymous`. `authenticated` and `anonymous` are mandatory roles as required by Azure SWA authentication. The other three are related to the function of the app. Role management for users is outlined at [Authentication and authorization for Azure Static Web Apps](https://docs.microsoft.com/en-us/azure/static-web-apps/authentication-authorization).
 
-The most priviliged role is `admin` and `admin` users can visit all routes. `staff` users can visit all routes except `/admin/`, `/auth/login/` and its subroutes `/auth/login/*` (they are already logged in). `member` users can only visit `/home/` and `/auth/logout/` (lets them log out). `anonymous` users can visit only `/auth/login/`. If users are logged in but are not at least members, then they are just `authenticated` and `authenticated` users will be redirected to `/auth/forbidden/` when attempting to access any other route (this is useful behaviour as Azure SWA seems to allow any user of the identity provider to log in without restriction).
+The most priviliged role is `admin` and `admin` users can visit all routes. `staff` users can visit all routes except `/admin/`, `/member/`, `/auth/logout/`, `/auth/login/` and its subroutes `/auth/login/*` (they are already logged in). `member` users can only visit `/home/`, `/member/` and `/auth/logout/logout.html` (lets them log out). `anonymous` users can visit only `/auth/login/`. If users are logged in but are not at least members, then they are just `authenticated` and `authenticated` users will be redirected to `/auth/login/` when attempting to access any other route (this is useful behaviour as Azure SWA seems to allow any user of the identity provider to log in without restriction).
 
 ### `/staticwebapp.config.json`
 
