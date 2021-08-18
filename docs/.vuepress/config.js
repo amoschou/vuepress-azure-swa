@@ -10,6 +10,8 @@ module.exports = {
         activeHeaderLinks: false,
         navbar: [
             { text: 'Home', link: '/home/' },
+            { text: 'Staff', link: '/staff/' },
+            { text: 'Member', link: '/member/' },
             { text: 'Log out', link: '/auth/logout/logout' }
         ],
         darkMode: false,
