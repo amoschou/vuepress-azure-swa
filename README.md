@@ -26,11 +26,11 @@ This app has the following routes and permissions:
 
 | Routes | Information |
 | ------ | ----------- |
-| `/` | Accessibly only by `admin`, `staff` or `member` users. |
-| `/home/` | Accessible only by `admin`, `staff` or `member` users. |
-| `/admin/` | Accessible only by `admin` users. |
-| `/staff/` | Accessibly only by `admin` or `staff` users. |
-| `/member/` | Accessibly only by `admin` or `member` users. |
+| `/` | Only for `admin`, `staff` or `member` users. Other `authenticated` or `anonymous` users can not visit this route. |
+| `/home/` | Only for `admin`, `staff` or `member` users. Other `authenticated` or `anonymous` users can not visit this route. |
+| `/admin/` | Only for `admin` users. Other `authenticated` or `anonymous` users can not visit this route. |
+| `/staff/` | Only for `admin` or `staff` users. Other `authenticated` or `anonymous` users including `member` users can not visit this route. |
+| `/member/` | Only for `admin` or `member` users. Other `authenticated` or `anonymous` users including `staff` users can not visit this route. |
 | `/auth/login/` | Users who have `anonymous` and not `authenticated` roles can visit this route. It has links to the login pages for different authorisation providers. |
 | `/auth/login/aad.html` | Users who have `anonymous` and not `authenticated` can visit this route. It redirects to `/.auth/login/aad` for Azure authentication using Azure AD. |
 | `/auth/login/twitter.html` | Users who have `anonymous` and not `authenticated` can visit this route. It redirects to `/.auth/login/aad` for Azure authentication using Twitter. |
