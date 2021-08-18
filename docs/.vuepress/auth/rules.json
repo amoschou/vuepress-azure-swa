@@ -16,7 +16,7 @@
             "/auth/login/twitter.html",
             "/auth/login/github.html"
         ],
-        "redirect": "/"
+        "redirect": "/home/"
     }, {
         "role": "member",
         "elevated": false,
