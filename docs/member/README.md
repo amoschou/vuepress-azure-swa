@@ -1,7 +1,7 @@
 ---
 layout: LayoutAuth
 authRequirements:
-  any: ['admin']
+  any: ['admin', 'member']
 ---
 
-# Admin
+# Members only

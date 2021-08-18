@@ -1,5 +1,5 @@
 ---
-layout: LayoutAuthRequirements
+layout: LayoutAuth
 home: true
 navbar: false
 editLink: false

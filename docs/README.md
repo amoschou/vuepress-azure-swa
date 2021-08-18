@@ -1,5 +1,5 @@
 ---
-layout: LayoutElevated
+layout: LayoutAuth
 home: true
 actions:
   - text: Enter site
@@ -13,6 +13,8 @@ editLink: false
 lastUpdated: false
 contributors: false
 sidebar: false
+authRequirements:
+  any: ['admin', 'staff', 'member']
 ---
 
 ::: tip Logged in
