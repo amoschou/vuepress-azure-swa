@@ -5,7 +5,6 @@ module.exports = {
     extends: '@vuepress/theme-default',
     layouts: {
         Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
-        LayoutAuthRequirements: path.resolve(__dirname, 'layouts/LayoutAuthRequirements.vue'),
-        LayoutElevated: path.resolve(__dirname, 'layouts/LayoutElevated.vue')
+        LayoutAuth: path.resolve(__dirname, 'layouts/LayoutAuth.vue'),
     }
 };
