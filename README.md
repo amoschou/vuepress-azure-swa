@@ -20,6 +20,10 @@ You may also need to set `app_build_command: "npm run docs:build"` in the `Repos
           ###### End of Repository/Build Configurations ######
 ```
 
+## App structure
+
+
+
 ## Files
 
 ### `/docs/.vuepress/auth/rules.json`
