@@ -9,6 +9,7 @@
         "elevated": true,
         "exceptions": [
             "/admin/",
+            "/member/",
             "/auth/logout/",
             "/auth/login/",
             "/auth/login/aad.html",
