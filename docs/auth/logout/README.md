@@ -1,5 +1,5 @@
 ---
-layout: LayoutAuthRequirements
+layout: LayoutAuth
 home: true
 actions:
   - text: Log out
@@ -15,6 +15,5 @@ authRequirements:
 ---
 
 ::: danger Forbidden: <Auth />
-
 You are logged in, but not authorised to view this site. If this is mistaken, request an invitation from the site administrator.
 :::
