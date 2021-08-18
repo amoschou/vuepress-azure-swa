@@ -10,6 +10,8 @@
         { "route": "/auth/logout/*", "allowedRoles": ["authenticated"] },
         { "route": "/home/", "allowedRoles": ["admin", "staff", "member"] },
         { "route": "/admin/", "allowedRoles": ["admin"] },
+        { "route": "/member/", "allowedRoles": ["admin", "member"] },
+        { "route": "/staff/", "allowedRoles": ["admin", "staff"] },
         { "route": "/*", "allowedRoles": ["admin", "staff"] }
     ],
     "responseOverrides": {

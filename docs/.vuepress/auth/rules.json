@@ -22,7 +22,7 @@
         "elevated": false,
         "exceptions": [
             "/home/",
-            "/auth/logout/",
+            "/member/",
             "/auth/logout/logout.html"
         ],
         "redirect": "/home/"
