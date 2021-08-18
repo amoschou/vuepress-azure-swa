@@ -4,4 +4,4 @@ authRequirements:
   any: ['admin', 'staff']
 ---
 
-# Admin
+# Staff only
