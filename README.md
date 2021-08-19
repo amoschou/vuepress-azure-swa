@@ -156,6 +156,5 @@ authRequirements:
   none: ['member']
 ```
 
-This example shows that the page will be rendered by the layout theme for `admin` and `staff` users but not `member` users.
-
+This example shows that the page will be rendered by the layout theme for `admin` or `staff` users but not `member` users. This app is set up to interpret `any` and `none` as: any user will be denied access to the page unless they have a role listed in the `any` array and do not have a role listed in the `none` array.
 
