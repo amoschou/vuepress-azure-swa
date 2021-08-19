@@ -22,6 +22,15 @@ You may also need to set `app_build_command: "npm run docs:build"` in the `Repos
 
 ## App structure
 
+### Roles
+
+This example has five roles. Two roles (`anonymous` and `authenticated`) are required by Azure. The other three roles (`member`, `staff` and `admin`) are to do with the app.
+* `anonymous`: Required by Azure. Any user automatically has an `anonymous` role.
+* `authenticated`: Required by Azure. Any logged in user automatically has an `authenticated` role.
+* `member`: A standard role.
+* `staff`: An elevated role.
+* `admin`: A highly elevated role.
+
 ### Routes
 
 This app has the following routes and permissions:
