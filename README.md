@@ -20,6 +20,8 @@ You may also need to set `app_build_command: "npm run docs:build"` in the `Repos
           ###### End of Repository/Build Configurations ######
 ```
 
+Alternatively, in `package.json`, you can have `"build:azure": "npm run docs:build"` inside `"scripts": { ... }`.
+
 ## App structure
 
 ### Roles
